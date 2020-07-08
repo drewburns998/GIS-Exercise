@@ -1,0 +1,28 @@
+{
+  "name": "mobikit",
+  "version": "1.0.0",
+  "description": "Coding Exercise",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drewburns998/mobikit.git"
+  },
+  "author": "Andrew Burns",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/drewburns998/mobikit/issues"
+  },
+  "homepage": "https://github.com/drewburns998/mobikit#readme",
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^10.4.5",
+    "parcel-bundler": "^1.12.4"
+  }
+}
