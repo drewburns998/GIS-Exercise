@@ -2,12 +2,25 @@
   "name": "mobikit",
   "version": "1.0.0",
   "description": "Coding Exercise",
-  "main": "index.js",
+  "main": "index.jsx",
   "scripts": {
     "start": "parcel index.html",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "lint:check": "eslint --ignore-path .gitignore .",
     "lint:fix": "run-s lint:check -- --fix"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "jsx",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest"
+    },
+    "setupFilesAfterEnv": [
+      "<rootDir>src/jest.config.js"
+    ]
   },
   "repository": {
     "type": "git",
@@ -20,11 +33,15 @@
   },
   "homepage": "https://github.com/drewburns998/mobikit#readme",
   "dependencies": {
+    "babel-jest": "^26.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@testing-library/jest-dom": "^5.11.0",
     "@testing-library/react": "^10.4.5",
+    "babel-preset-react-app": "^9.1.2",
     "eslint": "^7.4.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.22.0",
@@ -32,5 +49,10 @@
     "eslint-plugin-react": "^7.20.3",
     "parcel-bundler": "^1.12.4",
     "prettier": "^2.0.5"
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
   }
 }
