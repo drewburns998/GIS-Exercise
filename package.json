@@ -6,8 +6,7 @@
   "scripts": {
     "start": "parcel index.html",
     "test": "jest",
-    "lint:check": "eslint --ignore-path .gitignore .",
-    "lint:fix": "run-s lint:check -- --fix"
+    "lint:check": "eslint --ignore-path .gitignore ."
   },
   "jest": {
     "moduleFileExtensions": [
@@ -35,7 +34,9 @@
   "dependencies": {
     "babel-jest": "^26.1.0",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5"
   },
   "devDependencies": {
     "@babel/core": "^7.10.4",
