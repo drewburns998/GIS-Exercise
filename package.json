@@ -6,7 +6,9 @@
   "scripts": {
     "start": "parcel index.html",
     "test": "jest",
-    "lint:check": "eslint --ignore-path .gitignore ."
+    "lint:check": "eslint --ignore-path .gitignore .",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "jest": {
     "moduleFileExtensions": [
@@ -40,8 +42,13 @@
   },
   "devDependencies": {
     "@babel/core": "^7.10.4",
+    "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-links": "^5.3.19",
+    "@storybook/addons": "^5.3.19",
+    "@storybook/react": "^5.3.19",
     "@testing-library/jest-dom": "^5.11.0",
     "@testing-library/react": "^10.4.5",
+    "babel-loader": "^8.1.0",
     "babel-preset-react-app": "^9.1.2",
     "eslint": "^7.4.0",
     "eslint-config-prettier": "^6.11.0",
