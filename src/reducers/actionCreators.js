@@ -1,6 +1,6 @@
 import types from "./actionTypes";
 
-const saveLocationData = (data) => {
+export const saveLocationData = (data) => {
   return {
     type: types.SAVE_LOCATION_DATA,
     value: data,

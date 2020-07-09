@@ -1,14 +1,25 @@
 import React from "react";
 import CSVReader from "react-csv-reader";
 
-const onFileLoadedHandler = (data, fileInfo) =>
-  // eslint-disable-next-line no-console
-  console.log(data, fileInfo);
+const papaparseOptions = {
+  header: true,
+  skipEmptyLines: true,
+};
 
-export const MobiFileUpload = () => {
+export const MobiFileUpload = (props) => {
+  const { onFileLoaded } = props;
+
   return (
     <div>
-      <CSVReader onFileLoaded={onFileLoadedHandler} />
+      <CSVReader
+        parserOptions={papaparseOptions}
+        onFileLoaded={(data, fileInfo) =>
+          onFileLoaded({
+            data: data,
+            fileInfo: fileInfo,
+          })
+        }
+      />
     </div>
   );
 };
