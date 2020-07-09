@@ -6,6 +6,7 @@
   "scripts": {
     "start": "parcel index.html",
     "test": "jest",
+    "test:watch": "jest --watch",
     "lint:check": "eslint --ignore-path .gitignore .",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
@@ -44,6 +45,8 @@
   "dependencies": {
     "@ag-grid-community/all-modules": "^23.2.1",
     "@ag-grid-community/react": "^23.2.1",
+    "@turf/boolean-point-in-polygon": "^6.0.1",
+    "@turf/turf": "^5.1.6",
     "ag-grid-community": "^23.2.1",
     "ag-grid-react": "^23.2.1",
     "babel-jest": "^26.1.0",
