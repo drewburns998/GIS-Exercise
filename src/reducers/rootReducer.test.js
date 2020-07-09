@@ -1,4 +1,5 @@
 import { rootReducer } from "./rootReducer";
+import actionCreators from "./actionCreators";
 
 describe("rootReducer", () => {
   test("returns current state by default", () => {
@@ -14,7 +15,6 @@ describe("rootReducer", () => {
   });
 
   test("returns default state by default", () => {
-    const initialState = null;
     const expectedState = {
       locationData: [],
     };
@@ -22,6 +22,18 @@ describe("rootReducer", () => {
     const result = rootReducer(undefined, {
       action: "anything",
     });
+
+    expect(result).toEqual(expectedState);
+  });
+
+  test("correctly adds location data", () => {
+    const sampleData = [{ foo: "bar" }, { bar: "baz" }];
+    const action = actionCreators.saveLocationData(sampleData);
+    const expectedState = {
+      locationData: sampleData,
+    };
+
+    const result = rootReducer(undefined, action);
 
     expect(result).toEqual(expectedState);
   });
