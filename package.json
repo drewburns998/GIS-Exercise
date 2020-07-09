@@ -17,11 +17,19 @@
       "js"
     ],
     "transform": {
-      "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest"
+      "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js"
     },
     "setupFilesAfterEnv": [
       "<rootDir>src/jest.config.js"
-    ]
+    ],
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$",
+      "^.+\\.module\\.(css|sass|scss)$"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|less|scss|sss|styl)$": "<rootDir>/node_modules/jest-css-modules"
+    }
   },
   "repository": {
     "type": "git",
@@ -34,6 +42,8 @@
   },
   "homepage": "https://github.com/drewburns998/mobikit#readme",
   "dependencies": {
+    "@ag-grid-community/all-modules": "^23.2.1",
+    "@ag-grid-community/react": "^23.2.1",
     "ag-grid-community": "^23.2.1",
     "ag-grid-react": "^23.2.1",
     "babel-jest": "^26.1.0",
@@ -57,8 +67,10 @@
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.3",
+    "jest-css-modules": "^2.1.0",
     "parcel-bundler": "^1.12.4",
-    "prettier": "^2.0.5"
+    "prettier": "^2.0.5",
+    "redux-mock-store": "^1.5.4"
   },
   "babel": {
     "presets": [
