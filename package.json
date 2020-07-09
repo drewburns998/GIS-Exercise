@@ -34,6 +34,8 @@
   },
   "homepage": "https://github.com/drewburns998/mobikit#readme",
   "dependencies": {
+    "ag-grid-community": "^23.2.1",
+    "ag-grid-react": "^23.2.1",
     "babel-jest": "^26.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
