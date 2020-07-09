@@ -10,6 +10,19 @@ describe("rootReducer", () => {
       action: "No condition for this action ",
     });
 
-    expect(result).toBe(initialState);
+    expect(result).toEqual(initialState);
+  });
+
+  test("returns default state by default", () => {
+    const initialState = null;
+    const expectedState = {
+      locationData: [],
+    };
+
+    const result = rootReducer(undefined, {
+      action: "anything",
+    });
+
+    expect(result).toEqual(expectedState);
   });
 });
