@@ -7,6 +7,12 @@ export const saveLocationData = (data) => {
   };
 };
 
+export const startFileUpload = () => {
+  return {
+    type: types.START_FILE_UPLOAD,
+  };
+};
+
 export default {
   saveLocationData,
 };
