@@ -7,8 +7,6 @@ import {
 import { locationLookup2 } from "../services/locationLookup2";
 import { fetchData } from "../api/fetchData";
 
-
-
 export function* pollForUpload() {
   while (true) {
     const action = yield take(types.SAVE_LOCATION_DATA);
@@ -19,7 +17,11 @@ export function* pollForUpload() {
 
     console.log("looking up data");
     const newData = yield call(locationLookup2, payload.data, searchableData);
-    console.log("looking up finished");
+
+    let b = newData.features.filter((x) => x.properties.id_value.length > 0);
+    // console.log("looking up finished", newData.features[0].properties.id_value);
+    console.log("looking up finished", b);
+
 
     yield put(updateLocationData({ data: newData }));
   }

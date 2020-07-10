@@ -1,5 +1,5 @@
 import {
-  points,
+  point,
   booleanPointInPolygon,
   polygon,
   inside,
@@ -7,6 +7,9 @@ import {
   featureCollection,
   featureEach,
   getCoords,
+  flattenReduce,
+  featureReduce,
+  collect,
 } from "@turf/turf";
 
 const asyncFilter = async (arr, predicate) =>
@@ -20,20 +23,22 @@ const asyncPointsInPolygon = async (list, poly) => {
 };
 
 export const locationLookup2 = (searchItems = [], searchCorpus) => {
-  let list1 = searchItems.map((searchItem) => [
-    parseFloat(searchItem.longitude),
-    parseFloat(searchItem.latitude),
-  ]);
-  let listPoints = points(list1);
-
+  let list1 = searchItems.map((searchItem) =>
+    point([parseFloat(searchItem.longitude), parseFloat(searchItem.latitude)], {
+      id: searchItem.id,
+    })
+  );
+  //   let listPoints = points(list1);
   let convertToFeatureCollection = featureCollection(searchCorpus.features);
 
-  featureEach(convertToFeatureCollection, (feat, index) => {
-    let p = pointsWithinPolygon(listPoints, polygon(getCoords(feat)));
+  let collected = collect(
+    convertToFeatureCollection,
+    featureCollection(list1),
+    "id",
+    "id_value"
+  );
 
-    if (p.features.length > 0) {
-      console.log("iter number ", index);
-      console.log("points in poly", p);
-    }
-  });
+  //   let d = collected.filter(x => x.properties.values.length > 0);
+  console.log("collected with feature", collected);
+  return collected;
 };
