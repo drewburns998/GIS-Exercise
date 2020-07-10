@@ -1,6 +1,13 @@
-import { take, all, fork, put } from "redux-saga/effects";
+import { take, all, fork, put, select, call } from "redux-saga/effects";
 import types from "../reducers/actionTypes";
-import { fileUploadedSuccessfully } from "../reducers/actionCreators";
+import {
+  fileUploadedSuccessfully,
+  updateLocationData,
+} from "../reducers/actionCreators";
+import { locationLookup2 } from "../services/locationLookup2";
+import { fetchData } from "../api/fetchData";
+
+
 
 export function* pollForUpload() {
   while (true) {
@@ -8,6 +15,13 @@ export function* pollForUpload() {
     const { payload } = action;
 
     yield put(fileUploadedSuccessfully());
+    let searchableData = yield call(fetchData);
+
+    console.log("looking up data");
+    const newData = yield call(locationLookup2, payload.data, searchableData);
+    console.log("looking up finished");
+
+    yield put(updateLocationData({ data: newData }));
   }
 }
 

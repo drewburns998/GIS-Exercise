@@ -13,7 +13,15 @@ export const fileUploadedSuccessfully = () => {
   };
 };
 
+export const updateLocationData = (payload) => {
+  return {
+    type: types.UPDATE_LOCATION_DATA,
+    payload,
+  };
+};
+
 export default {
   saveLocationData,
   fileUploadedSuccessfully,
+  updateLocationData,
 };

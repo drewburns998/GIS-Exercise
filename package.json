@@ -50,6 +50,7 @@
     "ag-grid-community": "^23.2.1",
     "ag-grid-react": "^23.2.1",
     "babel-jest": "^26.1.0",
+    "json-loader": "^0.5.7",
     "react": "^16.13.1",
     "react-csv-reader": "^3.1.0",
     "react-dom": "^16.13.1",
