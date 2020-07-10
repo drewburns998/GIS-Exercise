@@ -1,18 +1,19 @@
 import types from "./actionTypes";
 
-export const saveLocationData = (data) => {
+export const saveLocationData = (payload) => {
   return {
     type: types.SAVE_LOCATION_DATA,
-    value: data,
+    payload,
   };
 };
 
-export const startFileUpload = () => {
+export const fileUploadedSuccessfully = () => {
   return {
-    type: types.START_FILE_UPLOAD,
+    type: types.FILE_UPLOADED_SUCCESSFULY,
   };
 };
 
 export default {
   saveLocationData,
+  fileUploadedSuccessfully,
 };

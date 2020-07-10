@@ -1,9 +1,13 @@
-import { take, all, fork } from "redux-saga/effects";
+import { take, all, fork, put } from "redux-saga/effects";
 import types from "../reducers/actionTypes";
+import { fileUploadedSuccessfully } from "../reducers/actionCreators";
 
 export function* pollForUpload() {
   while (true) {
-    yield take(types.START_FILE_UPLOAD);
+    const action = yield take(types.SAVE_LOCATION_DATA);
+    const { payload } = action;
+
+    yield put(fileUploadedSuccessfully());
   }
 }
 

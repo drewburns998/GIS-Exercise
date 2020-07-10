@@ -17,6 +17,7 @@ describe("rootReducer", () => {
   test("returns default state by default", () => {
     const expectedState = {
       locationData: [],
+      isDataLoaded: false,
     };
 
     const result = rootReducer(undefined, {
@@ -31,6 +32,19 @@ describe("rootReducer", () => {
     const action = actionCreators.saveLocationData(sampleData);
     const expectedState = {
       locationData: sampleData,
+      isDataLoaded: false,
+    };
+
+    const result = rootReducer(undefined, action);
+
+    expect(result).toEqual(expectedState);
+  });
+
+  test("updates isDataLoaded state", () => {
+    const action = actionCreators.fileUploadedSuccessfully();
+    const expectedState = {
+      locationData: [],
+      isDataLoaded: true,
     };
 
     const result = rootReducer(undefined, action);
