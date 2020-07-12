@@ -28,8 +28,8 @@ describe("upload location data saga", () => {
       call(fileTransformer, undefined)
     );
     expect(saga.next(uploadedData).value).toEqual(call(fetchData));
-    expect(saga.next({ transformedData: [], searchCorpus: [] }).value).toEqual(
-      call(locationLookup, expect.anything(), expect.anything())
+    expect(saga.next({ features: [] }).value).toEqual(
+      call(locationLookup, uploadedData, [])
     );
   });
 });

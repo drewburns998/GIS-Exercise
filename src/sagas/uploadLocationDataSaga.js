@@ -15,7 +15,13 @@ export function* pollForUpload() {
     const transformedUploadData = yield call(fileTransformer, data);
     const searchCorpus = yield call(fetchData);
 
-    yield call(locationLookup, transformedUploadData, searchCorpus);
+    const result = yield call(
+      locationLookup,
+      transformedUploadData,
+      searchCorpus.features
+    );
+
+    console.log("we finished", result);
   }
 }
 

@@ -1,20 +1,25 @@
+import { featureCollection } from "@turf/turf";
+
 import { locationLookup } from "./locationLookup";
+import { fileTransformer } from "./fileTransformer";
 
 describe("locationLookup service", () => {
   const searchItems = [
     {
       id: "0",
-      name,
+      name: "mcdonald's",
       latitude: 62.00973,
       longitude: -6.77164,
     },
     {
       id: "0",
-      name,
+      name: "wendy's",
       latitude: 82.00974,
       longitude: -6.7716,
     },
   ];
+
+  const searchItemsTransformed = fileTransformer(searchItems);
 
   const searchCorpus = {
     type: "FeatureCollection",
@@ -72,6 +77,8 @@ describe("locationLookup service", () => {
     ],
   };
 
+  const searchCorpusFC = featureCollection(searchCorpus.features);
+
   it("has default parameters", () => {
     const result = locationLookup();
 
@@ -79,21 +86,36 @@ describe("locationLookup service", () => {
   });
 
   it("handles no search corpus", () => {
-    const expectedResult = [
-      { id: "0", latitude: 62.00973, longitude: -6.77164, name: "" },
-      { id: "0", latitude: 82.00974, longitude: -6.7716, name: "" },
-    ];
     const result = locationLookup(searchItems);
 
-    expect(result).toEqual(expectedResult);
+    expect(result).toEqual([]);
   });
 
   it("has returns the correctly shaped parameters", () => {
-    const expectedResult = [
-      { id: "0", latitude: 62.00973, longitude: -6.77164, name: "TORSHAVN" },
-      { id: "0", latitude: 82.00974, longitude: -6.7716, name: "" },
-    ];
-    const result = locationLookup(searchItems, searchCorpus);
+    const expectedResult = {
+      features: [
+        {
+          geometry: { coordinates: [-6.77164, 62.00973], type: "Point" },
+          properties: {
+            city_name: "TORSHAVN",
+            id: "0",
+            landmarkName: "mcdonald's",
+          },
+          type: "Feature",
+        },
+        {
+          geometry: { coordinates: [-6.7716, 82.00974], type: "Point" },
+          properties: { id: "0", landmarkName: "wendy's" },
+          type: "Feature",
+        },
+      ],
+      type: "FeatureCollection",
+    };
+
+    const result = locationLookup(
+      searchItemsTransformed,
+      searchCorpusFC.features
+    );
 
     expect(result).toEqual(expectedResult);
   });
