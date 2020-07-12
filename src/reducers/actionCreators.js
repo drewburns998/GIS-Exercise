@@ -7,9 +7,10 @@ export const saveLocationData = (payload) => {
   };
 };
 
-export const fileUploadedSuccessfully = () => {
+export const fileUploadedSuccessfully = (filename) => {
   return {
     type: types.FILE_UPLOADED_SUCCESSFULY,
+    payload: filename,
   };
 };
 

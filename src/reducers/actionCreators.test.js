@@ -11,4 +11,14 @@ describe("Location Data Action Creators", () => {
       expectedAction
     );
   });
+
+  test("fileUploadedSuccessfully should create an action to set the saved file name", () => {
+    const expectedAction = {
+      type: types.FILE_UPLOADED_SUCCESSFULY,
+      payload: "aFile.csv",
+    };
+    expect(actionCreators.fileUploadedSuccessfully("aFile.csv")).toEqual(
+      expectedAction
+    );
+  });
 });
