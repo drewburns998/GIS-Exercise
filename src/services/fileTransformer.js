@@ -5,6 +5,9 @@ export const fileTransformer = (searchItems) => {
     point([searchItem.longitude, searchItem.latitude], {
       id: searchItem.id,
       landmarkName: searchItem.name,
+      latitude: searchItem.latitude,
+      longitude: searchItem.longitude,
+      name: searchItem.name,
     })
   );
 };

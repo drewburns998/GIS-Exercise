@@ -23,6 +23,9 @@ describe("fileTransformer service", () => {
         properties: {
           id: "0",
           landmarkName: "landmark1",
+          latitude: 62.00973,
+          longitude: -6.77164,
+          name: "landmark1",
         },
         geometry: {
           type: "Point",
@@ -34,6 +37,9 @@ describe("fileTransformer service", () => {
         properties: {
           id: "1",
           landmarkName: "landmark2",
+          latitude: 82.00974,
+          longitude: -6.7716,
+          name: "landmark2",
         },
         geometry: {
           type: "Point",

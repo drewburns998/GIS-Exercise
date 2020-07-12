@@ -92,25 +92,37 @@ describe("locationLookup service", () => {
   });
 
   it("has returns the correctly shaped parameters", () => {
-    const expectedResult = {
-      features: [
-        {
-          geometry: { coordinates: [-6.77164, 62.00973], type: "Point" },
-          properties: {
-            city_name: "TORSHAVN",
-            id: "0",
-            landmarkName: "mcdonald's",
-          },
-          type: "Feature",
+    const expectedResult = [
+      {
+        geometry: {
+          coordinates: [
+            [
+              [-6.75864, 62.01517],
+              [-6.76184, 62.01528],
+              [-6.77094, 62.00592],
+              [-6.78213, 62.01058],
+              [-6.78955, 62.01057],
+              [-6.78014, 62.01684],
+              [-6.78008, 62.02489],
+              [-6.78007, 62.02657],
+              [-6.76876, 62.02221],
+              [-6.75841, 62.02336],
+              [-6.75534, 62.01801],
+              [-6.75864, 62.01517],
+            ],
+          ],
+          type: "Polygon",
         },
-        {
-          geometry: { coordinates: [-6.7716, 82.00974], type: "Point" },
-          properties: { id: "0", landmarkName: "wendy's" },
-          type: "Feature",
+        properties: {
+          NAME: "TORSHAVN",
+          id_values_matched: ["0"],
+          latitude_values_matched: [62.00973],
+          longitude_values_matched: [-6.77164],
+          name_values_matched: ["mcdonald's"],
         },
-      ],
-      type: "FeatureCollection",
-    };
+        type: "Feature",
+      },
+    ];
 
     const result = locationLookup(
       searchItemsTransformed,
