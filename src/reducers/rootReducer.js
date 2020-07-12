@@ -13,6 +13,8 @@ export const rootReducer = (state = initialState, action) => {
       return { ...state, ...{ locationData: payload } };
     case types.FILE_UPLOADED_SUCCESSFULY:
       return { ...state, ...{ isDataLoaded: true } };
+    case types.UPDATE_LOCATION_DATA:
+      return { ...state, ...{ mergedData: payload } };
     default:
       return state;
   }

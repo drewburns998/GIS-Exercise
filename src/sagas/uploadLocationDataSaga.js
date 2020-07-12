@@ -18,12 +18,21 @@ export function* pollForUpload() {
     console.log("looking up data");
     const newData = yield call(locationLookup2, payload.data, searchableData);
 
-    let b = newData.features.filter((x) => x.properties.id_value.length > 0);
+    let b = newData.features.filter(
+      (x) => x.properties.id_values_matched.length > 0
+    );
     // console.log("looking up finished", newData.features[0].properties.id_value);
-    console.log("looking up finished", b);
+    console.log(
+      "looking up finished",
+      b.map((x) => {
+        return {
+          ...x.properties,
+          ...x.id_values_matched,
+        };
+      })
+    );
 
-
-    yield put(updateLocationData({ data: newData }));
+    yield put(updateLocationData({ data: newData.features }));
   }
 }
 

@@ -18,9 +18,11 @@ const asyncFilter = async (arr, predicate) =>
     []
   );
 
-const asyncPointsInPolygon = async (list, poly) => {
-  return pointsWithinPolygon(list, poly);
-};
+const arrayToObject = (array) =>
+  array.reduce((obj, item) => {
+    obj[item.id] = item;
+    return obj;
+  }, {});
 
 export const locationLookup2 = (searchItems = [], searchCorpus) => {
   let list1 = searchItems.map((searchItem) =>
@@ -35,10 +37,16 @@ export const locationLookup2 = (searchItems = [], searchCorpus) => {
     convertToFeatureCollection,
     featureCollection(list1),
     "id",
-    "id_value"
+    "id_values_matched"
   );
 
   //   let d = collected.filter(x => x.properties.values.length > 0);
-  console.log("collected with feature", collected);
+  let b = collected.features.map((x) => {
+    return {
+      ...x.properties,
+      ...x.id_values_matched,
+    };
+  });
+  console.log("collected with feature", b);
   return collected;
 };
