@@ -4,12 +4,24 @@
   "description": "Coding Exercise",
   "main": "index.jsx",
   "scripts": {
-    "start": "parcel index.html",
+    "start": "parcel --no-cache index.html",
     "test": "jest",
     "test:watch": "jest --watch",
     "lint:check": "eslint --ignore-path .gitignore .",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
+  },
+  "browserslist": {
+    "production": [
+      "last 3 chrome versions",
+      "last 3 firefox versions",
+      "last 3 safari versions"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "jest": {
     "moduleFileExtensions": [
@@ -50,9 +62,11 @@
     "ag-grid-community": "^23.2.1",
     "ag-grid-react": "^23.2.1",
     "babel-jest": "^26.1.0",
+    "deck.gl": "^8.2.2",
     "react": "^16.13.1",
     "react-csv-reader": "^3.1.0",
     "react-dom": "^16.13.1",
+    "react-map-gl": "^5.2.7",
     "react-redux": "^7.2.0",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
@@ -60,6 +74,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.10.4",
+    "@mapbox/babel-preset-mapbox": "^7.0.3-0",
     "@storybook/addon-actions": "^5.3.19",
     "@storybook/addon-links": "^5.3.19",
     "@storybook/addons": "^5.3.19",
@@ -69,6 +84,7 @@
     "babel-core": "^6.26.3",
     "babel-loader": "^8.1.0",
     "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-react-app": "^9.1.2",
     "eslint": "^7.4.0",
     "eslint-config-prettier": "^6.11.0",
