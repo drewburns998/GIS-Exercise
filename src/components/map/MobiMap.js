@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import "mapbox-gl/dist/mapbox-gl.css";
 import mapboxgl from "mapbox-gl";
 
@@ -17,10 +17,10 @@ const mapDefaults = {
   ],
 };
 
-const MobiMap = ({
+export const MobiMap = ({
   centerProp = mapDefaults.center,
   zoomProp = mapDefaults.zoom,
-  markers = mapDefaults.markers,
+  markersProp = mapDefaults.markers,
 }) => {
   const mapContainerRef = useRef(null);
 
@@ -32,7 +32,7 @@ const MobiMap = ({
       zoom: zoomProp,
     });
 
-    markers.forEach((marker) => {
+    markersProp.forEach((marker) => {
       new mapboxgl.Marker().setLngLat([marker.lng, marker.lat]).addTo(map);
     });
     map.addControl(new mapboxgl.NavigationControl(), "bottom-right");
@@ -48,5 +48,3 @@ const MobiMap = ({
     />
   );
 };
-
-export default MobiMap;
