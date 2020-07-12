@@ -29,23 +29,15 @@ describe("Location Table Container", () => {
   });
 
   it("displays the expected location info", () => {
-    const locationNameHeader = screen.getByText("Location Name");
-    const locationValue1 = screen.getByText("McDonald's");
-    const locationValue2 = screen.getByText("Wendy's");
+    const locationNameHeader = screen.getByText("City Found");
 
     expect(locationNameHeader).toBeInTheDocument();
-    expect(locationValue1).toBeInTheDocument();
-    expect(locationValue2).toBeInTheDocument();
   });
 
   it("displays the expected id info", () => {
-    const idNameHeader = screen.getByText("id");
-    const idValue1 = screen.getByText("another ID");
-    const idValue2 = screen.getByText("an ID");
+    const idNameHeader = screen.getByText("# of IDs matched");
 
     expect(idNameHeader).toBeInTheDocument();
-    expect(idValue1).toBeInTheDocument();
-    expect(idValue2).toBeInTheDocument();
   });
 
   it.skip("displays the expected latitude info", () => {

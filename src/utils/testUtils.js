@@ -13,6 +13,10 @@ export const renderWithStore = (Component, state = {}) => {
 
 export const initialState = {
   locationData: [],
+  isDataLoaded: false,
+  uploadedFileName: "",
+  searchResults: [],
+  isSearchCompleted: false,
 };
 
 export const ensureGridApiHasBeenSet = (component) => {

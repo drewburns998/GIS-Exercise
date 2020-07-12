@@ -24,6 +24,8 @@ export function* pollForUpload() {
       searchCorpus.features
     );
 
+    console.log("we finished", result);
+
     yield put(saveSearchResults(result));
   }
 }

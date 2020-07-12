@@ -5,11 +5,11 @@ import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-alpine.css";
 
 const defaultColumnDefs = [
-  { headerName: "id", field: "id" },
-  { headerName: "Location Name", field: "name" },
+  { headerName: "# of IDs matched", field: "id_values_matched" },
+  { headerName: "City Found", field: "city_name" },
   { headerName: "Latitude", field: "latitude" },
   { headerName: "Longitude", field: "longitude" },
-  { headerName: "City", field: "city" },
+  { headerName: "Rest Name", field: "restaurant" },
 ];
 
 export const MobiTable = ({ columnDefs = defaultColumnDefs, rowData = [] }) => {
@@ -22,7 +22,7 @@ export const MobiTable = ({ columnDefs = defaultColumnDefs, rowData = [] }) => {
         columnDefs={columnDefs}
         rowData={rowData}
         immutableData={true}
-        getRowNodeId={(data) => data.id}
+        getRowNodeId={(data) => data.city_name}
         pagination={true}
       ></AgGridReact>
     </div>
