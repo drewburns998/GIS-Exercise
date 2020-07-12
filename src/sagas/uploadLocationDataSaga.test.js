@@ -14,8 +14,8 @@ describe("upload location data saga", () => {
     const saga = pollForUpload(action);
 
     expect(saga.next().value).toEqual(take(types.SAVE_LOCATION_DATA));
-    expect(saga.next({ payload: [] }).value).toEqual(
-      put(fileUploadedSuccessfully())
-    );
+    expect(
+      saga.next({ payload: { fileInfo: { name: "aFile" } } }).value
+    ).toEqual(put(fileUploadedSuccessfully("aFile")));
   });
 });

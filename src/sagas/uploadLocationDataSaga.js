@@ -6,8 +6,9 @@ export function* pollForUpload() {
   while (true) {
     const action = yield take(types.SAVE_LOCATION_DATA);
     const { payload } = action;
+    const { fileInfo } = payload;
 
-    yield put(fileUploadedSuccessfully());
+    yield put(fileUploadedSuccessfully(fileInfo.name));
   }
 }
 
