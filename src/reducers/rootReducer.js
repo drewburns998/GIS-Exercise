@@ -4,6 +4,8 @@ const initialState = {
   locationData: [],
   isDataLoaded: false,
   uploadedFileName: "",
+  searchResults: [],
+  isSearchCompleted: false,
 };
 
 export const rootReducer = (state = initialState, action) => {
@@ -14,6 +16,8 @@ export const rootReducer = (state = initialState, action) => {
       return { ...state, ...{ locationData: payload } };
     case types.FILE_UPLOADED_SUCCESSFULY:
       return { ...state, isDataLoaded: true, uploadedFileName: payload };
+    case types.SAVE_SEARCH_RESULTS:
+      return { ...state, isSearchCompleted: true, searchResults: payload };
     default:
       return state;
   }

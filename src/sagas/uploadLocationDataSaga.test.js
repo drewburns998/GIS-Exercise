@@ -1,6 +1,7 @@
 import {
   saveLocationData,
   fileUploadedSuccessfully,
+  saveSearchResults,
 } from "../reducers/actionCreators";
 import { pollForUpload } from "./uploadLocationDataSaga";
 import { take, put, call } from "redux-saga/effects";
@@ -30,6 +31,9 @@ describe("upload location data saga", () => {
     expect(saga.next(uploadedData).value).toEqual(call(fetchData));
     expect(saga.next({ features: [] }).value).toEqual(
       call(locationLookup, uploadedData, [])
+    );
+    expect(saga.next(uploadedData).value).toEqual(
+      put(saveSearchResults(expect.anything()))
     );
   });
 });

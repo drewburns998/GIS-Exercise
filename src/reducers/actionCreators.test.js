@@ -21,4 +21,14 @@ describe("Location Data Action Creators", () => {
       expectedAction
     );
   });
+
+  test("saveSearchResults should create an action to set the saved file name", () => {
+    const expectedAction = {
+      type: types.SAVE_SEARCH_RESULTS,
+      payload: ["aFile.csv"],
+    };
+    expect(actionCreators.saveSearchResults(["aFile.csv"])).toEqual(
+      expectedAction
+    );
+  });
 });

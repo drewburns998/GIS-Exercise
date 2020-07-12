@@ -19,6 +19,8 @@ describe("rootReducer", () => {
       locationData: [],
       isDataLoaded: false,
       uploadedFileName: "",
+      searchResults: [],
+      isSearchCompleted: false,
     };
 
     const result = rootReducer(undefined, {
@@ -35,6 +37,24 @@ describe("rootReducer", () => {
       locationData: sampleData,
       isDataLoaded: false,
       uploadedFileName: "",
+      searchResults: [],
+      isSearchCompleted: false,
+    };
+
+    const result = rootReducer(undefined, action);
+
+    expect(result).toEqual(expectedState);
+  });
+
+  test("correctly adds saved results data", () => {
+    const sampleData = ["results"];
+    const action = actionCreators.saveSearchResults(sampleData);
+    const expectedState = {
+      locationData: [],
+      isDataLoaded: false,
+      uploadedFileName: "",
+      searchResults: ["results"],
+      isSearchCompleted: true,
     };
 
     const result = rootReducer(undefined, action);
@@ -48,6 +68,8 @@ describe("rootReducer", () => {
       locationData: [],
       isDataLoaded: true,
       uploadedFileName: "aFile.csv",
+      searchResults: [],
+      isSearchCompleted: false,
     };
 
     const result = rootReducer(undefined, action);

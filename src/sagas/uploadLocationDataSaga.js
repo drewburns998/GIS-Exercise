@@ -1,6 +1,9 @@
 import { take, all, fork, put, call } from "redux-saga/effects";
 import types from "../reducers/actionTypes";
-import { fileUploadedSuccessfully } from "../reducers/actionCreators";
+import {
+  fileUploadedSuccessfully,
+  saveSearchResults,
+} from "../reducers/actionCreators";
 import { fileTransformer } from "../services/fileTransformer";
 import { locationLookup } from "../services/locationLookup";
 import { fetchData } from "../api/fetchData";
@@ -21,7 +24,7 @@ export function* pollForUpload() {
       searchCorpus.features
     );
 
-    console.log("we finished", result);
+    yield put(saveSearchResults(result));
   }
 }
 

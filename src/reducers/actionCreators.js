@@ -14,7 +14,15 @@ export const fileUploadedSuccessfully = (filename) => {
   };
 };
 
+export const saveSearchResults = (results) => {
+  return {
+    type: types.SAVE_SEARCH_RESULTS,
+    payload: results,
+  };
+};
+
 export default {
   saveLocationData,
   fileUploadedSuccessfully,
+  saveSearchResults,
 };
