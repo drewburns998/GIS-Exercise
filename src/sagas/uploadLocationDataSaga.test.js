@@ -6,6 +6,8 @@ import { pollForUpload } from "./uploadLocationDataSaga";
 import { take, put, call } from "redux-saga/effects";
 import types from "../reducers/actionTypes";
 import { fileTransformer } from "../services/fileTransformer";
+import { fetchData } from "../api/fetchData";
+import { locationLookup } from "../services/locationLookup";
 
 describe("upload location data saga", () => {
   const uploadedData = {
@@ -24,6 +26,10 @@ describe("upload location data saga", () => {
     );
     expect(saga.next(uploadedData).value).toEqual(
       call(fileTransformer, undefined)
+    );
+    expect(saga.next(uploadedData).value).toEqual(call(fetchData));
+    expect(saga.next({ transformedData: [], searchCorpus: [] }).value).toEqual(
+      call(locationLookup, expect.anything(), expect.anything())
     );
   });
 });
