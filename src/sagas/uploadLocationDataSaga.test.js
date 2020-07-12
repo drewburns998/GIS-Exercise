@@ -3,10 +3,15 @@ import {
   fileUploadedSuccessfully,
 } from "../reducers/actionCreators";
 import { pollForUpload } from "./uploadLocationDataSaga";
-import { take, put } from "redux-saga/effects";
+import { take, put, call } from "redux-saga/effects";
 import types from "../reducers/actionTypes";
+import { fileTransformer } from "../services/fileTransformer";
 
 describe("upload location data saga", () => {
+  const uploadedData = {
+    payload: { fileInfo: { name: "aFile", data: "fileData" } },
+  };
+
   it("correctly listens when START FILE UPLOAD is dispatched", () => {
     const action = saveLocationData({
       data: "foo",
@@ -14,8 +19,11 @@ describe("upload location data saga", () => {
     const saga = pollForUpload(action);
 
     expect(saga.next().value).toEqual(take(types.SAVE_LOCATION_DATA));
-    expect(
-      saga.next({ payload: { fileInfo: { name: "aFile" } } }).value
-    ).toEqual(put(fileUploadedSuccessfully("aFile")));
+    expect(saga.next(uploadedData).value).toEqual(
+      put(fileUploadedSuccessfully("aFile"))
+    );
+    expect(saga.next(uploadedData).value).toEqual(
+      call(fileTransformer, undefined)
+    );
   });
 });
