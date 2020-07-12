@@ -1,52 +1,40 @@
+import React, { useRef, useEffect } from "react";
 import "mapbox-gl/dist/mapbox-gl.css";
-import React from "react";
-import ReactDOM from "react-dom";
 import mapboxgl from "mapbox-gl";
+// import "mapbox-gl/dist/mapbox-gl.css";
 
 const TOKEN =
   "pk.eyJ1IjoiZHJld2J1cm5zOTk4IiwiYSI6ImNrY2pkOHN6NjBudWUycm8yb2U1d3A0b2EifQ.PRMNgMtsXcxANheXmcLB7Q";
 mapboxgl.accessToken = TOKEN;
 
-class MobiMap extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      lng: 5,
-      lat: 34,
-      zoom: 2,
-    };
-  }
+const MobiMap = () => {
+  const mapContainerRef = useRef(null);
 
-  componentDidMount() {
+  // initialize map when component mounts
+  useEffect(() => {
     const map = new mapboxgl.Map({
-      container: this.mapContainer,
-      style: "mapbox://styles/mapbox/streets-v11",
-      center: [this.state.lng, this.state.lat],
-      zoom: this.state.zoom,
+      container: mapContainerRef.current,
+      // See style options here: https://docs.mapbox.com/api/maps/#styles
+      style: "mapbox://styles/mapbox/dark-v10",
+      center: [-82.998795, 39.961178],
+      zoom: 9,
     });
 
-    map.on("move", () => {
-      this.setState({
-        lng: map.getCenter().lng.toFixed(4),
-        lat: map.getCenter().lat.toFixed(4),
-        zoom: map.getZoom().toFixed(2),
-      });
-    });
-  }
+    new mapboxgl.Marker().setLngLat([-82.991154, 39.960157]).addTo(map);
+    // add navigation control (the +/- zoom buttons)
+    map.addControl(new mapboxgl.NavigationControl(), "bottom-right");
 
-  render() {
-    return (
-      <div>
-        <div className="sidebarStyle">
-          <div>
-            Longitude: {this.state.lng} | Latitude: {this.state.lat} | Zoom:{" "}
-            {this.state.zoom}
-          </div>
-        </div>
-        <div ref={(el) => (this.mapContainer = el)} className="mapContainer" />
-      </div>
-    );
-  }
-}
+    // clean up on unmount
+    return () => map.remove();
+  }, []);
+
+  return (
+    <div
+      className="map-container"
+      style={{ width: "800px", height: "800px" }}
+      ref={mapContainerRef}
+    />
+  );
+};
 
 export default MobiMap;
