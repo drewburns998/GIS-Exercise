@@ -8,6 +8,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import { uploadLocationDataSaga } from "./sagas/uploadLocationDataSaga";
 import createSagaMiddleware from "redux-saga";
 import { all } from "redux-saga/effects";
+import MobiMap from "./components/map/MobiMap";
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
@@ -20,6 +21,7 @@ export const App = () => (
     <div>Mobikit</div>
     <LocationCSVUploadContainer />
     <LocationTableContainer />
+    <MobiMap />
   </Provider>
 );
 
