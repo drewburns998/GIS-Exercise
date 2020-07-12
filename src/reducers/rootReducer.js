@@ -6,6 +6,7 @@ const initialState = {
   uploadedFileName: "",
   searchResults: [],
   isSearchCompleted: false,
+  mapSearchItems: {},
 };
 
 export const rootReducer = (state = initialState, action) => {
@@ -18,6 +19,8 @@ export const rootReducer = (state = initialState, action) => {
       return { ...state, isDataLoaded: true, uploadedFileName: payload };
     case types.SAVE_SEARCH_RESULTS:
       return { ...state, isSearchCompleted: true, searchResults: payload };
+    case types.UPDATE_MAP_SEARCH_VALUES:
+      return { ...state, mapSearchItems: payload.data };
     default:
       return state;
   }

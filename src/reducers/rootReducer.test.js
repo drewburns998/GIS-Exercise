@@ -21,6 +21,7 @@ describe("rootReducer", () => {
       uploadedFileName: "",
       searchResults: [],
       isSearchCompleted: false,
+      mapSearchItems: {},
     };
 
     const result = rootReducer(undefined, {
@@ -39,6 +40,7 @@ describe("rootReducer", () => {
       uploadedFileName: "",
       searchResults: [],
       isSearchCompleted: false,
+      mapSearchItems: {},
     };
 
     const result = rootReducer(undefined, action);
@@ -55,6 +57,7 @@ describe("rootReducer", () => {
       uploadedFileName: "",
       searchResults: ["results"],
       isSearchCompleted: true,
+      mapSearchItems: {},
     };
 
     const result = rootReducer(undefined, action);
@@ -70,6 +73,7 @@ describe("rootReducer", () => {
       uploadedFileName: "aFile.csv",
       searchResults: [],
       isSearchCompleted: false,
+      mapSearchItems: {},
     };
 
     const result = rootReducer(undefined, action);

@@ -31,4 +31,14 @@ describe("Location Data Action Creators", () => {
       expectedAction
     );
   });
+
+  test("updateMapSearchValues should create an action to set the saved search criteria", () => {
+    const expectedAction = {
+      type: types.UPDATE_MAP_SEARCH_VALUES,
+      payload: ["aSearch"],
+    };
+    expect(actionCreators.updateMapSearchValues(["aSearch"])).toEqual(
+      expectedAction
+    );
+  });
 });

@@ -21,8 +21,16 @@ export const saveSearchResults = (results) => {
   };
 };
 
+export const updateMapSearchValues = (results) => {
+  return {
+    type: types.UPDATE_MAP_SEARCH_VALUES,
+    payload: results,
+  };
+};
+
 export default {
   saveLocationData,
   fileUploadedSuccessfully,
   saveSearchResults,
+  updateMapSearchValues,
 };

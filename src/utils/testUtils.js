@@ -17,6 +17,7 @@ export const initialState = {
   uploadedFileName: "",
   searchResults: [],
   isSearchCompleted: false,
+  mapSearchItems: {},
 };
 
 export const ensureGridApiHasBeenSet = (component) => {
