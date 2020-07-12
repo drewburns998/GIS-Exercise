@@ -18,6 +18,7 @@ describe("rootReducer", () => {
     const expectedState = {
       locationData: [],
       isDataLoaded: false,
+      uploadedFileName: "",
     };
 
     const result = rootReducer(undefined, {
@@ -33,6 +34,7 @@ describe("rootReducer", () => {
     const expectedState = {
       locationData: sampleData,
       isDataLoaded: false,
+      uploadedFileName: "",
     };
 
     const result = rootReducer(undefined, action);
@@ -41,10 +43,11 @@ describe("rootReducer", () => {
   });
 
   test("updates isDataLoaded state", () => {
-    const action = actionCreators.fileUploadedSuccessfully();
+    const action = actionCreators.fileUploadedSuccessfully("aFile.csv");
     const expectedState = {
       locationData: [],
       isDataLoaded: true,
+      uploadedFileName: "aFile.csv",
     };
 
     const result = rootReducer(undefined, action);

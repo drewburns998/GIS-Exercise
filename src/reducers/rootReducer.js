@@ -3,6 +3,7 @@ import types from "./actionTypes";
 const initialState = {
   locationData: [],
   isDataLoaded: false,
+  uploadedFileName: "",
 };
 
 export const rootReducer = (state = initialState, action) => {
@@ -12,7 +13,7 @@ export const rootReducer = (state = initialState, action) => {
     case types.SAVE_LOCATION_DATA:
       return { ...state, ...{ locationData: payload } };
     case types.FILE_UPLOADED_SUCCESSFULY:
-      return { ...state, ...{ isDataLoaded: true } };
+      return { ...state, isDataLoaded: true, uploadedFileName: payload };
     default:
       return state;
   }
