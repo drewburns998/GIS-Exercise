@@ -28,9 +28,16 @@ export const updateMapSearchValues = (results) => {
   };
 };
 
+export const startNewUpload = () => {
+  return {
+    type: types.START_NEW_UPLOAD,
+  };
+};
+
 export default {
   saveLocationData,
   fileUploadedSuccessfully,
   saveSearchResults,
   updateMapSearchValues,
+  startNewUpload,
 };

@@ -1,5 +1,6 @@
 import { rootReducer } from "./rootReducer";
 import actionCreators from "./actionCreators";
+import { initialState as testInitState} from "../utils/testUtils";
 
 describe("rootReducer", () => {
   test("returns current state by default", () => {
@@ -129,6 +130,40 @@ describe("rootReducer", () => {
     };
 
     const result = rootReducer(undefined, action);
+
+    expect(result).toEqual(expectedState);
+  });
+
+  test("returns default state when starting a new upload", () => {
+    const action = actionCreators.startNewUpload();
+    const currentState = {
+      ...testInitState,
+      uploadedFileName: "fake file",
+    };
+
+    const expectedState = {
+      locationData: [],
+      isDataLoaded: false,
+      uploadedFileName: "",
+      searchResults: [],
+      isSearchCompleted: false,
+      mapSearchItems: {
+        markers: [],
+        id_values_matched: [],
+        latitude: [],
+        longitude: [],
+      },
+      mapViewport: {
+        width: 600,
+        height: 600,
+        latitude: 37.7577,
+        longitude: -122.4376,
+        zoom: 8,
+      },
+      isRowClicked: false,
+    };
+
+    const result = rootReducer(currentState, action);
 
     expect(result).toEqual(expectedState);
   });

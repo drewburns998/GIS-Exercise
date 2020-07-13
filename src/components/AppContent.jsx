@@ -26,6 +26,7 @@ export const AppContent = ({
   isSearchCompleted,
   isRowClicked,
   uploadedFileName,
+  startNewUpload,
 }) => {
   return (
     <div style={uploadStyle}>
@@ -38,7 +39,10 @@ export const AppContent = ({
       ) : null}
 
       {isSearchCompleted ? (
-        <UploadSuccess uploadedFileName={uploadedFileName} />
+        <UploadSuccess
+          uploadedFileName={uploadedFileName}
+          resetLink={startNewUpload}
+        />
       ) : null}
 
       <div style={tableStyle}>

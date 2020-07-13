@@ -47,6 +47,8 @@ export const rootReducer = (state = initialState, action) => {
           },
         },
       };
+    case types.START_NEW_UPLOAD:
+      return initialState;
     default:
       return state;
   }

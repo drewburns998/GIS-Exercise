@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import { AppContent } from "../components/AppContent";
+import { startNewUpload } from "../reducers/actionCreators";
 
 const mapStateToProps = (state) => ({
   isDataLoaded: state.isDataLoaded,
@@ -8,4 +9,11 @@ const mapStateToProps = (state) => ({
   uploadedFileName: state.uploadedFileName,
 });
 
-export const AppContainer = connect(mapStateToProps, null)(AppContent);
+const mapDispatchToProps = {
+  startNewUpload,
+};
+
+export const AppContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AppContent);
