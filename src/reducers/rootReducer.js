@@ -6,7 +6,19 @@ const initialState = {
   uploadedFileName: "",
   searchResults: [],
   isSearchCompleted: false,
-  mapSearchItems: {},
+  mapSearchItems: {
+    markers: [],
+    id_values_matched: [],
+    latitude: [],
+    longitude: [],
+  },
+  mapViewport: {
+    width: 600,
+    height: 600,
+    latitude: 37.7577,
+    longitude: -122.4376,
+    zoom: 8,
+  },
 };
 
 export const rootReducer = (state = initialState, action) => {
@@ -20,7 +32,19 @@ export const rootReducer = (state = initialState, action) => {
     case types.SAVE_SEARCH_RESULTS:
       return { ...state, isSearchCompleted: true, searchResults: payload };
     case types.UPDATE_MAP_SEARCH_VALUES:
-      return { ...state, mapSearchItems: payload.data };
+      return {
+        ...state,
+        mapSearchItems: payload,
+        ...{
+          mapViewport: {
+            width: 600,
+            height: 600,
+            latitude: parseFloat(payload.latitude[0]),
+            longitude: parseFloat(payload.longitude[0]),
+            zoom: 9.3,
+          },
+        },
+      };
     default:
       return state;
   }

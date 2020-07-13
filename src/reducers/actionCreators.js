@@ -24,7 +24,7 @@ export const saveSearchResults = (results) => {
 export const updateMapSearchValues = (results) => {
   return {
     type: types.UPDATE_MAP_SEARCH_VALUES,
-    payload: results,
+    payload: results.data,
   };
 };
 
