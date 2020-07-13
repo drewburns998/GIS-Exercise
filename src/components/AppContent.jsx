@@ -4,6 +4,7 @@ import { LocationCSVUploadContainer } from "../containers/LocationCSVUpload.cont
 import { LocationTableContainer } from "../containers/LocationTable.container";
 import { MobiMapContainer } from "../containers/MobiMap.container";
 import { UploadSuccess } from "./fileUpload/UploadSuccess";
+import BeatLoader from "react-spinners/BeatLoader";
 
 const uploadStyle = {
   margin: "25px 50px",
@@ -12,11 +13,7 @@ const uploadStyle = {
 const itemStyle = {
   width: "1200px",
   margin: "0 auto",
-};
-
-const messageStyle = {
   textAlign: "center",
-  marginBotton: "40px",
 };
 
 export const AppContent = ({
@@ -29,7 +26,11 @@ export const AppContent = ({
     <div style={uploadStyle}>
       {!isDataLoaded ? <LocationCSVUploadContainer /> : null}
 
-      {isDataLoaded && !isSearchCompleted ? <p>data is loading</p> : null}
+      {isDataLoaded && !isSearchCompleted ? (
+        <div style={itemStyle}>
+          <BeatLoader loading={!isSearchCompleted} />
+        </div>
+      ) : null}
 
       {isSearchCompleted ? (
         <UploadSuccess uploadedFileName={uploadedFileName} />
