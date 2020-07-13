@@ -8,7 +8,8 @@ const defaultColumns = [
   {
     headerName: "City Found",
     field: "city_name",
-    width: 550,
+    width: 400,
+    sortable: true,
   },
   {
     headerName: "Matches Found",
@@ -17,9 +18,10 @@ const defaultColumns = [
     sortable: true,
   },
   {
-    headerName: "Restaurant Name",
+    headerName: "Restaurant Name(s)",
     field: "restaurant",
-    width: 500,
+    width: 650,
+    sortable: true,
   },
 ];
 
