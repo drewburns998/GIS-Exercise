@@ -2,17 +2,17 @@
 
 ### Primary Technology Used
 
-React - *Single Page Application Framework*
-Redux - *Event Driven State management*
-Redux-saga - *application side effect management (async, network requests etc)*
-Parcel - *Bundler (low configuration)*
-Storybook - *UI Component Display and Testing*
-React Testing Library - *UI Driven component testing*
+* React - *Single Page Application Framework*
+* Redux - *Event Driven State management*
+* Redux-saga - *application side effect management (async, network requests etc)*
+* Parcel - *Bundler (low configuration)*
+* Storybook - *UI Component Display and Testing*
+* React Testing Library - *UI Driven component testing*
 
-react-csv-reader - *CSV importing w/ Papaparse*
-turfjs - *Geojson calculation library*
-react-map-gl - *Map & Coordinate Display*
-ag-grid - *High Performance Data Table*
+* react-csv-reader - *CSV importing w/ Papaparse*
+* turfjs - *Geojson calculation library*
+* react-map-gl - *Map & Coordinate Display*
+* ag-grid - *High Performance Data Table*
 
 
 ### Running the application locally:
