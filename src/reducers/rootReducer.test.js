@@ -34,6 +34,7 @@ describe("rootReducer", () => {
         longitude: -122.4376,
         zoom: 8,
       },
+      isRowClicked: false,
     };
 
     const result = rootReducer(undefined, {
@@ -65,6 +66,7 @@ describe("rootReducer", () => {
         longitude: -122.4376,
         zoom: 8,
       },
+      isRowClicked: false,
     };
 
     const result = rootReducer(undefined, action);
@@ -94,6 +96,7 @@ describe("rootReducer", () => {
         longitude: -122.4376,
         zoom: 8,
       },
+      isRowClicked: false,
     };
 
     const result = rootReducer(undefined, action);
@@ -122,6 +125,7 @@ describe("rootReducer", () => {
         longitude: -122.4376,
         zoom: 8,
       },
+      isRowClicked: false,
     };
 
     const result = rootReducer(undefined, action);

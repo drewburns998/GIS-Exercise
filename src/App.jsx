@@ -8,7 +8,6 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import { uploadLocationDataSaga } from "./sagas/uploadLocationDataSaga";
 import createSagaMiddleware from "redux-saga";
 import { all } from "redux-saga/effects";
-import { MobiMapContainer } from "./containers/MobiMap.container";
 import { AppContainer } from "./containers/AppContent.container";
 
 const sagaMiddleware = createSagaMiddleware();
@@ -17,9 +16,14 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(sagaMiddleware))
 );
 
+const divStyle = {
+  margin: "50px 25px",
+  textAlign: "center",
+};
+
 export const App = () => (
   <Provider store={store}>
-    <div>Mobikit</div>
+    <h1 style={divStyle}>Mobikit Coding Exercise</h1>
     <AppContainer />
   </Provider>
 );

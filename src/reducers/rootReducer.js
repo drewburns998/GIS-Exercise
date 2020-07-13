@@ -19,6 +19,7 @@ const initialState = {
     longitude: -122.4376,
     zoom: 8,
   },
+  isRowClicked: false,
 };
 
 export const rootReducer = (state = initialState, action) => {
@@ -35,6 +36,7 @@ export const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         mapSearchItems: payload,
+        isRowClicked: true,
         ...{
           mapViewport: {
             width: 600,

@@ -30,6 +30,7 @@ export const initialState = {
     longitude: -122.4376,
     zoom: 8,
   },
+  isRowClicked: false,
 };
 
 export const ensureGridApiHasBeenSet = (component) => {

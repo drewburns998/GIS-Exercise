@@ -27,7 +27,7 @@ export const MobiMap = ({ mapState, markersProp, onChangeViewport }) => {
   return (
     <ReactMapGL
       {...mapState}
-      width={500}
+      width={"100%"}
       height={500}
       mapboxApiAccessToken={TOKEN}
       onViewportChange={onChangeViewport}

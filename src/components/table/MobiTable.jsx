@@ -16,10 +16,7 @@ export const MobiTable = ({
   updateMapSearchValues,
 }) => {
   return (
-    <div
-      className="ag-theme-alpine"
-      style={{ height: "400px", width: "800px" }}
-    >
+    <div className="ag-theme-alpine" style={{ height: "400px", width: "100%" }}>
       <AgGridReact
         defaultColumnDefs
         autoSizeColumns={true}

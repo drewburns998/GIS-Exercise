@@ -6,11 +6,20 @@ const papaparseOptions = {
   skipEmptyLines: true,
 };
 
+const container = {
+  textAlign: "center",
+  padding: "15px",
+  margin: "10px auto",
+};
+
 export const MobiFileUpload = (props) => {
   const { onFileLoaded } = props;
 
   return (
-    <div>
+    <div style={container}>
+      <h3>
+        Select CSV with location data to determine which city it is located
+      </h3>
       <CSVReader
         parserOptions={papaparseOptions}
         onFileLoaded={(data, fileInfo) =>
