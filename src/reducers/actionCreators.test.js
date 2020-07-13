@@ -37,7 +37,8 @@ describe("Location Data Action Creators", () => {
       type: types.UPDATE_MAP_SEARCH_VALUES,
       payload: ["aSearch"],
     };
-    expect(actionCreators.updateMapSearchValues(["aSearch"])).toEqual(
+
+    expect(actionCreators.updateMapSearchValues({ data: ["aSearch"] })).toEqual(
       expectedAction
     );
   });

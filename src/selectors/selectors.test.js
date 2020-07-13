@@ -18,10 +18,11 @@ describe("search result selector", () => {
     const result = getSearchResults(state);
     const expectedResults = [
       {
-        id_values_matched: 2,
+        id_values_matched: ["1", "2"],
         city_name: "a city Name",
         latitude: [97.444],
         longitude: [-44.1],
+        number_of_matches: 2,
         restaurant: ["wendy's"],
       },
     ];

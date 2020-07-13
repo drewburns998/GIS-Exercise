@@ -21,7 +21,19 @@ describe("rootReducer", () => {
       uploadedFileName: "",
       searchResults: [],
       isSearchCompleted: false,
-      mapSearchItems: {},
+      mapSearchItems: {
+        markers: [],
+        id_values_matched: [],
+        latitude: [],
+        longitude: [],
+      },
+      mapViewport: {
+        width: 600,
+        height: 600,
+        latitude: 37.7577,
+        longitude: -122.4376,
+        zoom: 8,
+      },
     };
 
     const result = rootReducer(undefined, {
@@ -40,7 +52,19 @@ describe("rootReducer", () => {
       uploadedFileName: "",
       searchResults: [],
       isSearchCompleted: false,
-      mapSearchItems: {},
+      mapSearchItems: {
+        markers: [],
+        id_values_matched: [],
+        latitude: [],
+        longitude: [],
+      },
+      mapViewport: {
+        width: 600,
+        height: 600,
+        latitude: 37.7577,
+        longitude: -122.4376,
+        zoom: 8,
+      },
     };
 
     const result = rootReducer(undefined, action);
@@ -57,7 +81,19 @@ describe("rootReducer", () => {
       uploadedFileName: "",
       searchResults: ["results"],
       isSearchCompleted: true,
-      mapSearchItems: {},
+      mapSearchItems: {
+        markers: [],
+        id_values_matched: [],
+        latitude: [],
+        longitude: [],
+      },
+      mapViewport: {
+        width: 600,
+        height: 600,
+        latitude: 37.7577,
+        longitude: -122.4376,
+        zoom: 8,
+      },
     };
 
     const result = rootReducer(undefined, action);
@@ -73,7 +109,19 @@ describe("rootReducer", () => {
       uploadedFileName: "aFile.csv",
       searchResults: [],
       isSearchCompleted: false,
-      mapSearchItems: {},
+      mapSearchItems: {
+        markers: [],
+        id_values_matched: [],
+        latitude: [],
+        longitude: [],
+      },
+      mapViewport: {
+        width: 600,
+        height: 600,
+        latitude: 37.7577,
+        longitude: -122.4376,
+        zoom: 8,
+      },
     };
 
     const result = rootReducer(undefined, action);
