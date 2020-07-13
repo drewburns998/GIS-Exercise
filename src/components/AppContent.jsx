@@ -16,6 +16,11 @@ const itemStyle = {
   textAlign: "center",
 };
 
+const tableStyle = {
+  width: "1200px",
+  margin: "0 auto",
+};
+
 export const AppContent = ({
   isDataLoaded,
   isSearchCompleted,
@@ -36,7 +41,7 @@ export const AppContent = ({
         <UploadSuccess uploadedFileName={uploadedFileName} />
       ) : null}
 
-      <div style={itemStyle}>
+      <div style={tableStyle}>
         {isSearchCompleted ? <LocationTableContainer /> : null}
       </div>
 

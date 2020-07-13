@@ -24,6 +24,7 @@ describe("search result selector", () => {
         longitude: [-44.1],
         number_of_matches: 2,
         restaurant: ["wendy's"],
+        index: 0,
       },
     ];
 
