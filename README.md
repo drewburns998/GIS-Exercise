@@ -1,4 +1,4 @@
-# Mobikit coding exercise
+# GIS coding exercise
 
 ### Primary Technology Used
 
